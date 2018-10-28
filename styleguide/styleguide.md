@@ -1,6 +1,9 @@
-# gh-pages
-Test gh-pages
+Poiu Style Guides
+=================
 
+These stylguides are copies from the ([Google Style Guides](https://google.github.io/styleguide))
+with some small adjustments for our own projects. When contributing to our
+projects, please follow these style guides.
 
 This project currently only holds the [Java Style Guide][java].
 
@@ -11,11 +14,11 @@ See [https://creativecommons.org/licenses/by/3.0/][ccl] for more details.
 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
 
 [cpp]: https://google.github.io/styleguide/cppguide.html
-[swift]: https://google.github.io/swift/
 [objc]: objcguide.md
-[java]: https://hupfdule.github.io/javaguide.html
-[py]: https://google.github.io/styleguide/pyguide.html
-[r]: https://google.github.io/styleguide/Rguide.html
+[java]: javaguide.html
+[javaold]: https://hupfdule.github.io/javaguide.html
+[py]: https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+[r]: https://google.github.io/styleguide/Rguide.xml
 [sh]: https://google.github.io/styleguide/shell.xml
 [htmlcss]: https://google.github.io/styleguide/htmlcssguide.html
 [js]: https://google.github.io/styleguide/jsguide.html

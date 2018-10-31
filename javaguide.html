@@ -848,7 +848,7 @@ public class Example {
   private final String title;
   
   /** A silly counter with no real purpose. */
-  private long count;
+  private long count= 0;
 
 
   /////////////////////////////////////////////////////////////////////////////
@@ -1182,6 +1182,43 @@ lang-java">Object.finalize</code>.</p>
 
 "Avoid Finalizers," very carefully, and <em>then</em> don't do it.</p>
 
+<div class="poiu">
+<h3 id="s6.5-final-keyword">6.5 Final keyword</h3>
+
+<p>Each field and local variable as well as all method parameters must be made <code>final</code> by
+default. Only if there really is a need to allow reassignment to the field, variable or parameter,
+the <code>final</code> keyword may be omitted. However, reassignment of method parameters is
+usually bad practice and should therefore be avoided.</p>
+
+<p>Therefore the following is a typical class that makes very clear that only the counter field may
+be reassigned.</p>
+
+<pre class="prettyprint lang-java">
+public class Example {
+
+  private final String title;
+  
+  private final Window owner;
+
+  private final List&lt;Listener&gt; listeners= new ArrayList&lt;Listener&gt;();
+
+  private final JButton btnOk= new JButton("OK");
+
+  private final JButton btnCancel= new JButton("Cancel");
+
+  private int counter= 0;
+
+
+  public Example(final Window owner, final String title) {
+    this.owner= owner;
+    this.title= title;
+  }
+}
+</pre>
+
+<p>Classes and method should never be made <code>final</code> unless there is a real need to do
+so. Restricting inheritance by using <code>final</code> usually does more harm than good.</p>
+</div>
 
 <a name="javadoc"></a>
 <h2 id="s7-javadoc">7 Javadoc</h2>

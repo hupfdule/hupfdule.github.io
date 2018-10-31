@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Google Java Style Guide</title>
+<title><span class="poiu">Poiu</span> Java Style Guide</title>
 <link rel="stylesheet" type="text/css" href="javaguide.css">
 <script language="javascript" src="include/styleguide.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="https://www.google.com/favicon.ico" />
@@ -10,16 +10,16 @@
 </head>
 <body onload="initStyleGuide();">
 <div id="content">
-<h1>Google Java Style Guide</h1>
+<h1><span class="poiu">Poiu</span> Java Style Guide</h1>
 <div class="vertical_toc" id="tocDiv"></div>
 
 <div class="main_body">
 
 <h2 id="s1-introduction">1 Introduction</h2>
 
-<p>This document serves as the <strong>complete</strong> definition of Google's coding standards for
+<p>This document serves as the <strong>complete</strong> definition of <span class="poiu">Poiu</span>'s coding standards for
 source code in the Java&#8482; Programming Language. A Java source file is described as being <em>in
-Google Style</em> if and only if it adheres to the rules herein.</p>
+<span class="poiu">Poiu</span> Style</em> if and only if it adheres to the rules herein.</p>
 
 <p>Like other programming style guides, the issues covered span not only aesthetic issues of
 formatting, but other types of conventions or coding standards as well. However, this document
@@ -50,7 +50,7 @@ avoids giving <em>advice</em> that isn't clearly enforceable (whether by human o
 <h3 id="s1.2-guide-notes">1.2 Guide notes</h3>
 
 <p>Example code in this document is <strong>non-normative</strong>. That is, while the examples
-are in Google Style, they may not illustrate the <em>only</em> stylish way to represent the
+are in <span class="poiu">Poiu</span> Style, they may not illustrate the <em>only</em> stylish way to represent the
 code. Optional formatting choices made in examples should not be enforced as rules.</p>
 
 
@@ -163,7 +163,11 @@ programs are <strong>broken</strong> and they must be <strong>fixed</strong>.</p
 </ol>
 </div>
 
-<p><strong>Exactly one blank line</strong> separates each section that is present.</p>
+<p>
+<strong>Exactly one blank line</strong> separates each section that is present.
+<span class="poiu">The only exception being the license or copyright
+  information, after which no blank line should be put.
+</p>
 
 <h3 id="s3.1-copyright-statement">3.1 License or copyright information, if present</h3>
 
@@ -194,8 +198,10 @@ statements.</p>
 <p>Imports are ordered as follows:</p>
 
 <ol>
-  <li>All static imports in a single block.</li>
+  <span class="poiu">
   <li>All non-static imports in a single block.</li>
+  <li>All static imports in a single block.</li>
+  </span>
 </ol>
 
 <p>If there are both static and non-static imports, a single blank line separates the two
@@ -393,7 +399,7 @@ without the need to line-wrap.</p>
 
 <ol>
   <li>When a line is broken at a <em>non-assignment</em> operator the break comes <em>before</em>
-  the symbol. (Note that this is not the same practice used in Google style for other languages,
+  the symbol. (Note that this is not the same practice used in <span class="poiu">Poiu</span> style for other languages,
   such as C++ and JavaScript.)
     <ul>
       <li>This also applies to the following "operator-like" symbols:
@@ -470,6 +476,10 @@ previous lines.</p>
     create <em>logical groupings</em> of fields.</span></li>
     <li><span class="exception"><strong>Exception:</strong> Blank lines between enum constants are
     covered in <a href="#s4.8.1-enum-classes">Section 4.8.1</a>.</span></li>
+    <li><span class="poiu exception"><strong>Exception:</strong> Methods are
+    separated by <strong>two</strong> blank lines. This is done to visually
+    differentiate between separations inside methods and separation between
+    methods more easily.</span></li>
   </ul>
   </li>
 
@@ -556,6 +566,10 @@ Javadoc, a single ASCII space also appears in the following places <strong>only<
 
   <li>Between a type annotation and <code class="prettyprint lang-java">[]</code> or
   <code class="prettyprint lang-java">...</code>.</li>
+
+  <li><span class="poiu">After an assignment operator, but not before it:
+      <code class="prettyprint lang-java poiu">int i= 5;</code></span>
+  </li>
 </ol>
 
 <p>This rule is never interpreted as requiring or forbidding additional space at the start or
@@ -567,7 +581,7 @@ end of a line; it addresses only <em>interior</em> space.</p>
 practice of adding a variable number of additional spaces in your code with the goal of making
 certain tokens appear directly below certain other tokens on previous lines.</p>
 
-<p>This practice is permitted, but is <strong>never required</strong> by Google Style. It is not
+<p>This practice is permitted, but is <strong>never required</strong> by <span class="poiu">Poiu</span> Style. It is not
 even required to <em>maintain</em> horizontal alignment in places where it was already used.</p>
 
 <p>Here is an example without alignment, then using alignment:</p>
@@ -610,7 +624,8 @@ lines (usually just one) are also allowed. This is one possibility:
   },
 
   NO,
-  MAYBE
+  MAYBE<span class="poiu">,
+  ;</span>
 }
 </pre>
 
@@ -618,8 +633,13 @@ lines (usually just one) are also allowed. This is one possibility:
 as if it were an array initializer (see Section 4.8.3.1 on
 <a href="#s4.8.3.1-array-initializers">array initializers</a>).</p>
 
-<pre class="prettyprint lang-java">private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS }
+<pre class="prettyprint lang-java">private enum Suit { CLUBS, HEARTS, SPADES, DIAMONDS<span class="poiu">,</span> }
 </pre>
+
+<p><span class="poiu">A comma should be put put after each enum constant.
+  Also, if each enum constant is put on its own line, a semicolon should be
+  put at on the line after the last enum constant as can be seen in the
+  above example.</span></p>
 
 <p>Since enum classes <em>are classes</em>, all other rules for formatting classes apply.</p>
 
@@ -803,6 +823,11 @@ recommended by the Java Language Specification:
 lowercase (to avoid confusion with the digit <code>1</code>). For example, <code>3000000000L</code>
 rather than <code class="badcode">3000000000l</code>.</p>
 
+<p><span class="poiu">An underscore should be used to separate the digits
+  of integer literals if they have more than 5 digits. So instead of
+  <code>300000</code> these should be written as <code>300_000</code>. This
+  should not be done for integer literals with 4 or less digits.</span></p>
+
 <a name="naming"></a>
 <h2 id="s5-naming">5 Naming</h2>
 
@@ -812,8 +837,8 @@ rather than <code class="badcode">3000000000l</code>.</p>
 underscores. Thus each valid identifier name is matched by the regular expression
 <code>\w+</code> .</p>
 
-<p>In Google Style, special prefixes or suffixes are <strong>not</strong> used. For example, these
-names are not Google Style: <code class="badcode">name_</code>, <code class="badcode">mName</code>,
+<p>In <span class="poiu">Poiu</span> Style, special prefixes or suffixes are <strong>not</strong> used. For example, these
+names are not <span class="poiu">Poiu</span> Style: <code class="badcode">name_</code>, <code class="badcode">mName</code>,
 <code class="badcode">s_name</code> and <code class="badcode">kName</code>.</p>
 
 <h3 id="s5.2-specific-identifier-names">5.2 Rules by identifier type</h3>
@@ -935,7 +960,7 @@ be styled as constants.</p>
 
 <p>Sometimes there is more than one reasonable way to convert an English phrase into camel case,
 such as when acronyms or unusual constructs like "IPv6" or "iOS" are present. To improve
-predictability, Google Style specifies the following (nearly) deterministic scheme.</p>
+predictability, <span class="poiu">Poiu</span> Style specifies the following (nearly) deterministic scheme.</p>
 
 <p>Beginning with the prose form of the name:</p>
 

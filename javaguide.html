@@ -811,7 +811,78 @@ Such a comment renders the line non-blank.</p>
 re-wrap the lines when necessary (paragraph-style). Most formatters don't re-wrap lines in
 <code class="prettyprint lang-java">// ...</code> style comment blocks.</p>
 
- 
+<div class="poiu">
+<h5 id="s4.8.6.2-section-comment-blocks">4.8.6.2 Section comment blocks</h5>
+
+<p>Complex classes should prepend the sections of fields, constructors and
+methods with a 3-line, 80-column comment block to visually separate the
+sections. For very small classes that would not benefit from it, those
+comment blocks should be omitted.</p>
+
+<p>Any static content must come before the first section comment block.</p>
+
+<p>When existing the section comment blocks should be separated by two empty lines to its predecessor 
+and one empty line to its successor. If a section comment block is empty it should be separated only
+by a single empty line to its successor.</p>
+
+<p>When section comment blocks are given, then all three of them must be given, even if some of them
+are actually empty.</p>
+
+<p>A typical class with such section comment blocks would look like the
+following:</p>
+
+<pre class="prettyprint lang-java">
+public class Example {
+  
+  private static final Logger LOGGER= LogManager.getLogger();
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Attributes
+
+  /** The title of this Example. */
+  private final String title;
+  
+  /** A silly counter with no real purpose. */
+  private long count;
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Constructors
+
+  /**
+   * Creates a new Example with a nonsense title.
+   */
+  public Example() {
+    this.title= "Nonsense";
+  }
+
+  /**
+   * Creates a new Example with the given title.
+   */
+  public Example(final String title) {
+    this.title= title;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Methods
+
+  /**
+   * Do something unspecified.
+   */
+  public void doSomething() {
+    count++;
+  }
+
+  ...
+}
+</pre>
+</div>
+
 
 <a name="modifiers"></a>
 <h4 id="s4.8.7-modifiers">4.8.7 Modifiers</h4>
